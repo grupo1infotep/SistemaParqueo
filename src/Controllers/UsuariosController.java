@@ -47,7 +47,6 @@ public class UsuariosController {
     
     
 //<Select
-    
     public List<UsuariosModel> SelectUsuarios(){
         try {
             preparedStatement = connectionController.Conectar().prepareStatement("select * from usuarios where eliminado='no'");

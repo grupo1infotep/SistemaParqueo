@@ -4,8 +4,12 @@ public class TelefonosModel {
 
     private String idTelefono;
     private String idRelacion;
-    private String numeroTelefono;
-    private String tipoTelefono;
+    private String telefono1;
+    private String tipoTelefono1;
+    private String telefono2;
+    private String tipoTelefono2;
+    private String telefono3;
+    private String tipoTelefono3;
     private String creado;
     private String modificado;
     private String eliminado;
@@ -13,16 +17,19 @@ public class TelefonosModel {
     public TelefonosModel() {
     }
 
-    public TelefonosModel(String idTelefono, String idRelacion) {
-        this.idTelefono = idTelefono;
+    public TelefonosModel(String idRelacion) {
         this.idRelacion = idRelacion;
     }
-    
-    public TelefonosModel(String idTelefono, String idRelacion, String numeroTelefono, String tipoTelefono, String creado, String modificado, String eliminado) {
+
+    public TelefonosModel(String idTelefono, String idRelacion, String telefono1, String tipoTelefono1, String telefono2, String tipoTelefono2, String telefono3, String tipoTelefono3, String creado, String modificado, String eliminado) {
         this.idTelefono = idTelefono;
         this.idRelacion = idRelacion;
-        this.numeroTelefono = numeroTelefono;
-        this.tipoTelefono = tipoTelefono;
+        this.telefono1 = telefono1;
+        this.tipoTelefono1 = tipoTelefono1;
+        this.telefono2 = telefono2;
+        this.tipoTelefono2 = tipoTelefono2;
+        this.telefono3 = telefono3;
+        this.tipoTelefono3 = tipoTelefono3;
         this.creado = creado;
         this.modificado = modificado;
         this.eliminado = eliminado;
@@ -44,20 +51,52 @@ public class TelefonosModel {
         this.idRelacion = idRelacion;
     }
 
-    public String getNumeroTelefono() {
-        return numeroTelefono;
+    public String getTelefono1() {
+        return telefono1;
     }
 
-    public void setNumeroTelefono(String numeroTelefono) {
-        this.numeroTelefono = numeroTelefono;
+    public void setTelefono1(String telefono1) {
+        this.telefono1 = telefono1;
     }
 
-    public String getTipoTelefono() {
-        return tipoTelefono;
+    public String getTipoTelefono1() {
+        return tipoTelefono1;
     }
 
-    public void setTipoTelefono(String tipoTelefono) {
-        this.tipoTelefono = tipoTelefono;
+    public void setTipoTelefono1(String tipoTelefono1) {
+        this.tipoTelefono1 = tipoTelefono1;
+    }
+
+    public String getTelefono2() {
+        return telefono2;
+    }
+
+    public void setTelefono2(String telefono2) {
+        this.telefono2 = telefono2;
+    }
+
+    public String getTipoTelefono2() {
+        return tipoTelefono2;
+    }
+
+    public void setTipoTelefono2(String tipoTelefono2) {
+        this.tipoTelefono2 = tipoTelefono2;
+    }
+
+    public String getTelefono3() {
+        return telefono3;
+    }
+
+    public void setTelefono3(String telefono3) {
+        this.telefono3 = telefono3;
+    }
+
+    public String getTipoTelefono3() {
+        return tipoTelefono3;
+    }
+
+    public void setTipoTelefono3(String tipoTelefono3) {
+        this.tipoTelefono3 = tipoTelefono3;
     }
 
     public String getCreado() {
@@ -86,17 +125,7 @@ public class TelefonosModel {
 
     @Override
     public String toString() {
-        return "TelefonosModel{" + "idTelefono=" + idTelefono + ", idRelacion=" + idRelacion + ", numeroTelefono=" + numeroTelefono + ", tipoTelefono=" + tipoTelefono + ", creado=" + creado + ", modificado=" + modificado + ", eliminado=" + eliminado + '}';
+        return "TelefonosModel{" + "idTelefono=" + idTelefono + ", idRelacion=" + idRelacion + ", telefono1=" + telefono1 + ", tipoTelefono1=" + tipoTelefono1 + ", telefono2=" + telefono2 + ", tipoTelefono2=" + tipoTelefono2 + ", telefono3=" + telefono3 + ", tipoTelefono3=" + tipoTelefono3 + ", creado=" + creado + ", modificado=" + modificado + ", eliminado=" + eliminado + '}';
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }

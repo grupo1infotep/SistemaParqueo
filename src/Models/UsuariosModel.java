@@ -16,6 +16,8 @@ public class UsuariosModel {
     private String modificado;
     private String eliminado;
 
+   
+    
     public UsuariosModel() {
     }
 
