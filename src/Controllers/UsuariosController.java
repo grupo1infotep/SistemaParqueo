@@ -1,11 +1,13 @@
 package Controllers;
-import Models.UsuariosModel;
+import Models.*;
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class UsuariosController {
-    
 //GlobalVariables
     ConnectionController connectionController = new ConnectionController();
     PreparedStatement  preparedStatement;
@@ -14,12 +16,12 @@ public class UsuariosController {
     
   
 //<Insert 
-    public boolean InsertUsuario(UsuariosModel usuariosModel){
+    public String InsertUsuario(UsuariosModel usuariosModel){
                         
         try {
-            PreparedStatement preparedStatement = connectionController.Conectar().prepareStatement(
-                "insert into usuarios (id_usuario,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido,documento,usuario,contrasena,tipo_usuario,status,creado,modificado,eliminado) values ("
-                + "uuid(),?,?,?,?,?,?,?,?,?,now(),now(),?)"
+            preparedStatement = connectionController.Conectar().prepareStatement(
+                "insert into usuarios (id_usuario,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido,documento,usuario,contrasena,tipo_usuario,status,creado,modificado) values ("
+                + "uuid(),?,?,?,?,?,?,?,?,?,now(),now())"
             );
             
             
@@ -32,17 +34,20 @@ public class UsuariosController {
             preparedStatement.setString(7, usuariosModel.getContrasena());
             preparedStatement.setString(8, usuariosModel.getTipoUsuario());
             preparedStatement.setString(9, usuariosModel.getStatus());
-            preparedStatement.setString(10, usuariosModel.getEliminado());
-            
+                        
             preparedStatement.executeUpdate();
             
-            return true;
             
+            resultSet = connectionController.Conectar().prepareStatement("SELECT id_usuario FROM usuarios WHERE creado =(select MAX(creado)from usuarios)").executeQuery();
+            while (resultSet.next()){
+                return resultSet.getString(1);   
+            }
+            return "";   
         } catch (Exception ex) {
             System.out.println(ex);
-            return false;
+            return "";
         }
-    }
+    }   
 //>Insert 
     
     
@@ -172,6 +177,21 @@ public class UsuariosController {
 //>Delete    
     
     
+    public void j(){
+        
+        String idUsuario="";
+        try {
+            resultSet = connectionController.Conectar().prepareStatement("SELECT id_usuario FROM usuarios WHERE creado =(select MAX(creado)from usuarios)").executeQuery();
+            while (resultSet.next()){
+                
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuariosController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     
     
 }

@@ -6,13 +6,13 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
-public class UsuariosView extends javax.swing.JFrame {
+public class TagsView extends javax.swing.JFrame {
     UsuariosController usuariosController;
     TelefonosController telefonosController;
     DefaultTableModel tblDatosPersonalesDtm, tblTelefonosDtm;
     List<UsuariosModel> usuarioLogueado;
     
-    public UsuariosView(List<UsuariosModel> usuarioLogueado) {
+    public TagsView(List<UsuariosModel> usuarioLogueado) {
         initComponents();
         usuariosController = new UsuariosController();
         telefonosController= new TelefonosController();
@@ -63,6 +63,7 @@ public class UsuariosView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblUsuarios.setColumnSelectionAllowed(true);
         tblUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblUsuarios.setName(""); // NOI18N
         jScrollPane2.setViewportView(tblUsuarios);
@@ -73,10 +74,10 @@ public class UsuariosView extends javax.swing.JFrame {
         jLabel3.setText("Buscar:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 40)); // NOI18N
-        jLabel4.setText("Usuarios");
+        jLabel4.setText("Tags");
 
         txtBuscar.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtBuscar.setPreferredSize(new java.awt.Dimension(25, 30));
         txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -119,7 +120,6 @@ public class UsuariosView extends javax.swing.JFrame {
 
         btnDetalles.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnDetalles.setText("Detalles");
-        btnDetalles.setPreferredSize(new java.awt.Dimension(89, 25));
         btnDetalles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDetallesActionPerformed(evt);
@@ -135,37 +135,40 @@ public class UsuariosView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNuevoDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditarDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(232, 232, 232)
-                        .addComponent(jLabel7)
-                        .addGap(8, 8, 8)
-                        .addComponent(lblUsuario)
-                        .addGap(132, 132, 132)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNuevoDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEditarDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(326, 326, 326)
+                                .addComponent(jLabel7)
+                                .addGap(8, 8, 8)
+                                .addComponent(lblUsuario)
+                                .addGap(132, 132, 132)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblUsuario)
-                        .addComponent(jLabel7)))
-                .addGap(5, 5, 5)
+                        .addComponent(jLabel7))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -175,7 +178,7 @@ public class UsuariosView extends javax.swing.JFrame {
                         .addComponent(btnEditarDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -191,36 +194,33 @@ public class UsuariosView extends javax.swing.JFrame {
         }
     }
     
-    public void LlenarTablaUsuarios(List<UsuariosModel> listUsuariosModel){
+        public void LlenarTablaTags(List<TagsModel> listTagsModel){
         tblDatosPersonalesDtm.setNumRows(0);
-        for(UsuariosModel usuariosModel : listUsuariosModel){
+        for(TagsModel tagsModel : listTagsModel){
             tblDatosPersonalesDtm.addRow(
                 new Object[]{
-                    usuariosModel.getIdUsuario(),
-                    usuariosModel.getPrimerNombre()+usuariosModel.getSegundoNombre(),
-                    usuariosModel.getPrimerApellido()+ usuariosModel.getSegundoApellido(),
-                    usuariosModel.getDocumento(),
-                    usuariosModel.getUsuario(),
-                    usuariosModel.getTipoUsuario(),
-                    usuariosModel.getStatus(),
-                    usuariosModel.getCreado(),
-                    usuariosModel.getModificado()
+                    tagsModel.getId_tags(),
+                    tagsModel.getNumero_tags(),
+                    tagsModel.getReferencias(),
+                    tagsModel.getActivo(),
+                    tagsModel.getCreado(),
+                    tagsModel.getModificado()
                 }
             );
         }
     }
     
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
-        LlenarTablaUsuarios(usuariosController.SelectUsuarioByName(this.txtBuscar.getText().replace(" ", "")));
+        LlenarTablaTags(TagsController.SelectTagsById(this.txtBuscar.getText().replace(" ", "")));
     }//GEN-LAST:event_txtBuscarKeyReleased
 
     private void btnEditarDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDatosPersonalesActionPerformed
-            new EditarUsuarioView(tblUsuarios.getModel().getValueAt(tblUsuarios.getSelectedRow(),0).toString()).setVisible(true);
+            new EditarTagsView(tblUsuarios.getModel().getValueAt(tblUsuarios.getSelectedRow(),0).toString()).setVisible(true);
     }//GEN-LAST:event_btnEditarDatosPersonalesActionPerformed
 
     private void btnRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefrescarActionPerformed
         JOptionPane.showMessageDialog(null,"Tablas Refrescadas");
-        LlenarTablaUsuarios(usuariosController.SelectUsuarios());
+        LlenarTablaTags(TagsController.SelectTagsById());
     }//GEN-LAST:event_btnRefrescarActionPerformed
 
     private void btnDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetallesActionPerformed

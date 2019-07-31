@@ -19,7 +19,7 @@ public class TelefonosController {
     public boolean InsertTelefono(TelefonosModel telefonosModel){
                         
         try {
-            PreparedStatement preparedStatement = connectionController.Conectar().prepareStatement(
+            preparedStatement = connectionController.Conectar().prepareStatement(
                 "insert into telefonos (id_telefono,id_relacion,telefono_1,tipo_telefono_1,telefono_2,tipo_telefono_2,telefono_3,tipo_telefono_3,creado,modificado,eliminado) values ("
                 + "uuid(),?,?,?,?,?,?,?,now(),now(),'no')"
             );
@@ -28,10 +28,10 @@ public class TelefonosController {
             preparedStatement.setString(1, telefonosModel.getIdRelacion());
             preparedStatement.setString(2, telefonosModel.getTelefono1());
             preparedStatement.setString(3, telefonosModel.getTipoTelefono1());
-            preparedStatement.setString(2, telefonosModel.getTelefono2());
-            preparedStatement.setString(3, telefonosModel.getTipoTelefono2());
-            preparedStatement.setString(2, telefonosModel.getTelefono3());
-            preparedStatement.setString(3, telefonosModel.getTipoTelefono3());
+            preparedStatement.setString(4, telefonosModel.getTelefono2());
+            preparedStatement.setString(5, telefonosModel.getTipoTelefono2());
+            preparedStatement.setString(6, telefonosModel.getTelefono3());
+            preparedStatement.setString(7, telefonosModel.getTipoTelefono3());
             
             preparedStatement.executeUpdate();
             

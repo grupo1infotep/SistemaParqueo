@@ -3,7 +3,7 @@ import Controllers.*;
 import Models.*;
 import javax.swing.JOptionPane;
 
-public class NuevoUsuarioView extends javax.swing.JFrame {
+public class EditarUsuarioView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -21,11 +21,13 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        txtTipoUsuario = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         txtDocumento = new javax.swing.JTextField();
         txtContrasena = new javax.swing.JPasswordField();
         jLabel13 = new javax.swing.JLabel();
+        txtStatus = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         txtCreado = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -56,8 +58,6 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
         cbTipoTelefono1 = new javax.swing.JComboBox<>();
         cbTipoTelefono2 = new javax.swing.JComboBox<>();
         cbTipoTelefono3 = new javax.swing.JComboBox<>();
-        cbTipoUsuario = new javax.swing.JComboBox<>();
-        cbStatus = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -75,7 +75,6 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
 
         txtPrimerNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtPrimerNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtPrimerNombre.setNextFocusableComponent(txtSegundoNombre);
         txtPrimerNombre.setPreferredSize(new java.awt.Dimension(25, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -83,7 +82,6 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
 
         txtSegundoNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtSegundoNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtSegundoNombre.setNextFocusableComponent(txtPrimerApellido);
         txtSegundoNombre.setPreferredSize(new java.awt.Dimension(25, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -91,15 +89,13 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
 
         txtSegundoApellido.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtSegundoApellido.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtSegundoApellido.setNextFocusableComponent(txtDocumento);
         txtSegundoApellido.setPreferredSize(new java.awt.Dimension(25, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel8.setText("Primer Apellido:");
+        jLabel8.setText("Primer Nombre:");
 
         txtPrimerApellido.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtPrimerApellido.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtPrimerApellido.setNextFocusableComponent(txtSegundoApellido);
         txtPrimerApellido.setPreferredSize(new java.awt.Dimension(25, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -107,11 +103,14 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
 
         txtUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtUsuario.setNextFocusableComponent(txtContrasena);
         txtUsuario.setPreferredSize(new java.awt.Dimension(25, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel10.setText("Tipo Usuraio:");
+
+        txtTipoUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtTipoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtTipoUsuario.setPreferredSize(new java.awt.Dimension(25, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setText("Contrasena:");
@@ -121,7 +120,6 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
 
         txtDocumento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtDocumento.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtDocumento.setNextFocusableComponent(txtUsuario);
         txtDocumento.setPreferredSize(new java.awt.Dimension(25, 30));
 
         txtContrasena.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -129,6 +127,10 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel13.setText("Status:");
+
+        txtStatus.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtStatus.setPreferredSize(new java.awt.Dimension(25, 30));
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel14.setText("Creado:");
@@ -245,13 +247,6 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
         cbTipoTelefono3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         cbTipoTelefono3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Otro", "Residencial", "Trabajo", "Celular" }));
 
-        cbTipoUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        cbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Otro", "Regular", "Administrador" }));
-        cbTipoUsuario.setName(""); // NOI18N
-
-        cbStatus.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Otro", "Activo", "Inactivo" }));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -268,28 +263,28 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(40, 40, 40)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addGap(40, 40, 40)
+                                                    .addComponent(jLabel13)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(6, 6, 6)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jLabel14)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                            .addComponent(txtCreado, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jLabel16)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                            .addComponent(txtModificado, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel14)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(txtCreado, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel16)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(txtModificado, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(40, 40, 40)
-                                                        .addComponent(jLabel13))
-                                                    .addComponent(jLabel10))
+                                                .addComponent(jLabel10)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(cbTipoUsuario, 0, 0, Short.MAX_VALUE)
-                                                    .addComponent(cbStatus, 0, 108, Short.MAX_VALUE)))))
+                                                .addComponent(txtTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addContainerGap()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -457,16 +452,17 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
+                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(cbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
+                                .addGap(1, 1, 1)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
@@ -523,17 +519,51 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public NuevoUsuarioView() {
+    public EditarUsuarioView(String idUsuario) {
         initComponents();
+        
+        for(UsuariosModel item : new UsuariosController().SelectUsuarioById(idUsuario)){
+            txtIdUsuario.setText(item.getIdUsuario());
+            txtPrimerNombre.setText(item.getPrimerNombre());
+            txtSegundoNombre.setText(item.getSegundoNombre());
+            txtPrimerApellido.setText(item.getPrimerApellido());
+            txtSegundoApellido.setText(item.getSegundoApellido());
+            txtDocumento.setText(item.getDocumento());
+            txtUsuario.setText(item.getUsuario());
+            txtContrasena.setText(item.getContrasena());
+            txtTipoUsuario.setText(item.getTipoUsuario());
+            txtStatus.setText(item.getStatus());
+            txtCreado.setText(item.getCreado());
+            txtModificado.setText(item.getModificado());
+        }
+        
+        
+        for(TelefonosModel item : new TelefonosController().SelectTelefonosById(idUsuario)){
+            txtTelefono1.setText(item.getTelefono1());
+            cbTipoTelefono1.getModel().setSelectedItem(item.getTipoTelefono1());
+            txtTelefono2.setText(item.getTelefono2());
+            cbTipoTelefono2.getModel().setSelectedItem(item.getTipoTelefono2());
+            txtTelefono3.setText(item.getTelefono3());
+            cbTipoTelefono3.getModel().setSelectedItem(item.getTipoTelefono3());
+        }
+        
+        for(DireccionesModel item : new DireccionesController().SelectDireccionById(idUsuario)){
+            txtCalle.setText(item.getCalle());
+            txtNumero.setText(item.getNumero());
+            txtSector.setText(item.getSector());
+            txtCiudad.setText(item.getCiudad());
+            txtPais.setText(item.getPais());
+        }
+        
     }
     
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        int opcion = JOptionPane.showConfirmDialog(null,"Desea Guardar el Registro?","Guardar",JOptionPane.YES_NO_OPTION);
+        int opcion = JOptionPane.showConfirmDialog(this,"Desea Modificar El Usuario?","Modificar",JOptionPane.YES_NO_OPTION);
         if(opcion==0){
-            String idUsuario = new UsuariosController().InsertUsuario(
+            new UsuariosController().UpdateUsuario(
                 new UsuariosModel(
                         txtIdUsuario.getText(),
                         txtPrimerNombre.getText(),
@@ -543,18 +573,18 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
                         txtDocumento.getText(),
                         txtUsuario.getText(),
                         String.valueOf(txtContrasena.getPassword()),
-                        cbTipoUsuario.getSelectedItem().toString(),
-                        cbStatus.getSelectedItem().toString(),
+                        txtTipoUsuario.getText(),
+                        txtStatus.getText(),
                         txtCreado.getText(),
                         txtModificado.getText(),
                         ""
                 )
             ); 
             
-            new TelefonosController().InsertTelefono(
+            new TelefonosController().UpdateTelefonoById(
                 new TelefonosModel(
                         "",
-                        idUsuario,
+                        txtIdUsuario.getText(),
                         txtTelefono1.getText(),
                         cbTipoTelefono1.getSelectedItem().toString(),
                         txtTelefono2.getText(),
@@ -567,10 +597,10 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
                 )
             );
             
-            new DireccionesController().InsertDireccion(
+            new DireccionesController().UpdateDireccionById(
                 new DireccionesModel(
                         "",
-                        idUsuario,
+                        txtIdUsuario.getText(),
                         txtCalle.getText(),
                         txtNumero.getText(),
                         txtSector.getText(),
@@ -581,8 +611,6 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
                         ""
                 )
             );
-            
-            
             
             
             JOptionPane.showMessageDialog(this, "Usuario Modificado Exitosamente");
@@ -598,11 +626,9 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JComboBox<String> cbStatus;
     private javax.swing.JComboBox<String> cbTipoTelefono1;
     private javax.swing.JComboBox<String> cbTipoTelefono2;
     private javax.swing.JComboBox<String> cbTipoTelefono3;
-    private javax.swing.JComboBox<String> cbTipoUsuario;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -643,9 +669,11 @@ public class NuevoUsuarioView extends javax.swing.JFrame {
     private javax.swing.JTextField txtSector;
     private javax.swing.JTextField txtSegundoApellido;
     private javax.swing.JTextField txtSegundoNombre;
+    private javax.swing.JTextField txtStatus;
     private javax.swing.JTextField txtTelefono1;
     private javax.swing.JTextField txtTelefono2;
     private javax.swing.JTextField txtTelefono3;
+    private javax.swing.JTextField txtTipoUsuario;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

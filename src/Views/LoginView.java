@@ -2,6 +2,7 @@ package Views;
 
 import Controllers.*;
 import Models.*;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -10,6 +11,21 @@ public class LoginView extends javax.swing.JFrame {
         UsuariosController usuariosController= new UsuariosController(); 
         List<UsuariosModel> usuariosList;
     
+    public void LoginMethod(){
+        usuariosList = usuariosController.SelectUsuarioByUsuarioAndContrasena(this.txtUsuario.getText(), String.valueOf(this.txtContrasena.getPassword()));
+        if(!usuariosList.isEmpty()){
+            for(UsuariosModel usuariosModel : usuariosList){
+                new PrincipalView(usuariosList).setVisible(true);
+                this.dispose();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario o Contrasena Invalido");
+            this.txtContrasena.setText("");
+        }
+    }
+
+
+        
     public LoginView() {
         initComponents();
     }
@@ -42,6 +58,11 @@ public class LoginView extends javax.swing.JFrame {
         jLabel5.setText("Contrasena:");
 
         txtContrasena.setPreferredSize(new java.awt.Dimension(25, 30));
+        txtContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContrasenaKeyPressed(evt);
+            }
+        });
 
         btnLogin.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnLogin.setText("Login");
@@ -107,21 +128,18 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        usuariosList = usuariosController.SelectUsuarioByUsuarioAndContrasena(this.txtUsuario.getText(), String.valueOf(this.txtContrasena.getPassword()));
-        if(!usuariosList.isEmpty()){
-            for(UsuariosModel usuariosModel : usuariosList){
-                new PrincipalView(usuariosList).setVisible(true);
-                this.dispose();
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario o Contrasena Invalido");
-            this.txtContrasena.setText("");
-        }
+        LoginMethod();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void txtContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            LoginMethod();
+        }
+    }//GEN-LAST:event_txtContrasenaKeyPressed
 
     public static void main(String[] args) {
         new LoginView().setVisible(true);
