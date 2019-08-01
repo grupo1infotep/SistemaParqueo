@@ -2,7 +2,6 @@ package Views;
 
 import Views.Usuarios.UsuariosView;
 import Models.*;
-
 import java.util.List;
 
 public class PrincipalView extends javax.swing.JFrame {
@@ -30,11 +29,11 @@ public class PrincipalView extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btnTags = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pantalla Principal");
         setMinimumSize(new java.awt.Dimension(1245, 616));
+        setPreferredSize(new java.awt.Dimension(1245, 616));
         setSize(new java.awt.Dimension(1245, 616));
 
         btnUsuarios.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -55,14 +54,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 40)); // NOI18N
         jLabel4.setText("Pantalla Principal");
 
-        btnTags.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        btnTags.setText("Tags");
-        btnTags.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTagsActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,9 +68,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGap(126, 126, 126))
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
-                .addComponent(btnTags, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,9 +81,7 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addComponent(jLabel7))
                     .addComponent(jLabel4))
                 .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTags, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(449, Short.MAX_VALUE))
         );
 
@@ -105,13 +92,8 @@ public class PrincipalView extends javax.swing.JFrame {
         new UsuariosView(usuarioLogueado).setVisible(true);
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
-    private void btnTagsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTagsActionPerformed
-       new TagsView.TagsView(usuarioLogueado).setVisible(true);
-    }//GEN-LAST:event_btnTagsActionPerformed
-
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnTags;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
