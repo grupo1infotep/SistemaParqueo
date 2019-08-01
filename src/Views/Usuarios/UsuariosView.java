@@ -1,6 +1,9 @@
 package Views.Usuarios;
 import Controllers.*;
 import Models.*;
+import Views.Usuarios.DetalleUsuarioView;
+import Views.Usuarios.EditarUsuarioView;
+import Views.Usuarios.NuevoUsuarioView;
 import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -76,7 +79,7 @@ public class UsuariosView extends javax.swing.JFrame {
         jLabel4.setText("Usuarios");
 
         txtBuscar.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtBuscar.setPreferredSize(new java.awt.Dimension(25, 30));
         txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -119,7 +122,6 @@ public class UsuariosView extends javax.swing.JFrame {
 
         btnDetalles.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnDetalles.setText("Detalles");
-        btnDetalles.setPreferredSize(new java.awt.Dimension(89, 25));
         btnDetalles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDetallesActionPerformed(evt);

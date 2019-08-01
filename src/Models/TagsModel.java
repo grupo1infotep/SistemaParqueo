@@ -1,26 +1,30 @@
 package Models;
 
-public class TagsModel {
+import Models.*;
 
-    private String id_tags;
-    private String numero_tags;
+public class TagsModel {
+    
+    private String idtags;
+    private String numerotags;
     private String referencias;
     private String activo;
     private String creado;
     private String modificado;
     private String eliminado;
 
+   
+    
     public TagsModel() {
     }
 
-    public TagsModel(String id_tags) {
-        this.id_tags = this.id_tags;
+    public TagsModel(String idtags) {
+        this.idtags = idtags;
     }
 
-    public TagsModel(String id_tags, String numero_tags, String referencias, String activo, String creado, String modificado, String eliminado) {
-
-        this.id_tags = id_tags;
-        this.numero_tags = numero_tags;
+    
+    public TagsModel(String idtags, String numerotags, String referencias, String activo, String creado, String modificado, String eliminado) {
+        this.idtags = idtags;
+        this.numerotags = numerotags;
         this.referencias = referencias;
         this.activo = activo;
         this.creado = creado;
@@ -28,20 +32,20 @@ public class TagsModel {
         this.eliminado = eliminado;
     }
 
-    public String getId_tags() {
-        return id_tags;
+    public String getIdtags() {
+        return idtags;
     }
 
-    public void setId_tags(String id_tags) {
-        this.id_tags = id_tags;
+    public void setIdtags(String idtags) {
+        this.idtags = idtags;
     }
 
-    public String getNumero_tags() {
-        return numero_tags;
+    public String getNumerotags() {
+        return numerotags;
     }
 
-    public void setNumero_tags(String numero_tags) {
-        this.numero_tags = numero_tags;
+    public void setNumerotags(String numerotags) {
+        this.numerotags = numerotags;
     }
 
     public String getReferencias() {
@@ -86,7 +90,10 @@ public class TagsModel {
 
     @Override
     public String toString() {
-        return "TagsModel{" + "id_tags=" + id_tags + ", numero_tags=" + numero_tags + ", referencias=" + referencias + ", activo=" + activo + ", creado=" + creado + ", modificado=" + modificado + ", eliminado=" + eliminado + '}';
+        return "TagsModel{" + "idtags=" + idtags + ", numerotags=" + numerotags + ", referencias=" + referencias + ", activo=" + activo + ", creado=" + creado + ", modificado=" + modificado + ", eliminado=" + eliminado + '}';
     }
 
+   
+     
+    
 }

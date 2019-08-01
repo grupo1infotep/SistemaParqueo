@@ -1,39 +1,36 @@
-package Views.Usuarios;
+package TagsView;
+import Views.Usuarios.*;
 import Controllers.*;
 import Models.*;
+import Views.Usuarios.DetalleUsuarioView;
+import Views.Usuarios.EditarUsuarioView;
+import Views.Usuarios.NuevoUsuarioView;
 import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
 public class TagsView extends javax.swing.JFrame {
-    UsuariosController usuariosController;
-    TelefonosController telefonosController;
-    DefaultTableModel tblDatosPersonalesDtm, tblTelefonosDtm;
+    TagsController tagsController;
+    DefaultTableModel DatosTags;
     List<UsuariosModel> usuarioLogueado;
     
     public TagsView(List<UsuariosModel> usuarioLogueado) {
         initComponents();
-        usuariosController = new UsuariosController();
-        telefonosController= new TelefonosController();
-        tblDatosPersonalesDtm = (DefaultTableModel) this.tblUsuarios.getModel();
+        tagsController = new TagsController();
+        DatosTags = (DefaultTableModel) this.tblTags.getModel();
         //tblTelefonosDtm = (DefaultTableModel) this.tblTelefonos.getModel();
         this.usuarioLogueado= usuarioLogueado;
         CargarDatosUsuarioLogueado();
         
-        LlenarTablaUsuarios(usuariosController.SelectUsuarios());
+        LlenarTablaUsuarios(tagsController.SelectTags());
     }
-    
-    
-    
-    
-    
-    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblUsuarios = new javax.swing.JTable();
+        tblTags = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
@@ -46,29 +43,29 @@ public class TagsView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        tblUsuarios.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+        tblTags.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        tblTags.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nombres", "Apellidos", "Documento", "Usuario", "Tipo Usuario", "Status", "Creado", "Modificado"
+                "id_tags", "numero_tags", "referencias", "activo", "creado", "modificado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tblUsuarios.setColumnSelectionAllowed(true);
-        tblUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        tblUsuarios.setName(""); // NOI18N
-        jScrollPane2.setViewportView(tblUsuarios);
-        tblUsuarios.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        tblUsuarios.getAccessibleContext().setAccessibleName("tblDatosPersonales");
+        tblTags.setColumnSelectionAllowed(true);
+        tblTags.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblTags.setName(""); // NOI18N
+        jScrollPane2.setViewportView(tblTags);
+        tblTags.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblTags.getAccessibleContext().setAccessibleName("tblDatosPersonales");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel3.setText("Buscar:");
@@ -151,7 +148,7 @@ public class TagsView extends javax.swing.JFrame {
                                 .addComponent(btnRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(326, 326, 326)
+                                .addGap(295, 295, 295)
                                 .addComponent(jLabel7)
                                 .addGap(8, 8, 8)
                                 .addComponent(lblUsuario)
@@ -162,13 +159,14 @@ public class TagsView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblUsuario)
-                        .addComponent(jLabel7))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUsuario)
+                            .addComponent(jLabel7))
+                        .addGap(41, 41, 41))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -178,7 +176,7 @@ public class TagsView extends javax.swing.JFrame {
                         .addComponent(btnEditarDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -188,19 +186,19 @@ public class TagsView extends javax.swing.JFrame {
     public void CargarDatosUsuarioLogueado(){
         for(UsuariosModel usuariosModel : usuarioLogueado){
             this.lblUsuario.setText(
-                    usuariosModel.getPrimerNombre() + " " + 
+                    usuariosModel.getPrimerNombre()+ " " + 
                     usuariosModel.getPrimerApellido()
             );
         }
     }
     
-        public void LlenarTablaTags(List<TagsModel> listTagsModel){
-        tblDatosPersonalesDtm.setNumRows(0);
-        for(TagsModel tagsModel : listTagsModel){
-            tblDatosPersonalesDtm.addRow(
+    public void LlenarTablaUsuarios(List<TagsModel> listtagsModel){
+        DatosTags.setNumRows(0);
+        for(TagsModel tagsModel : listtagsModel){
+            DatosTags.addRow(
                 new Object[]{
-                    tagsModel.getId_tags(),
-                    tagsModel.getNumero_tags(),
+                    tagsModel.getIdtags(),
+                    tagsModel.getNumerotags(),
                     tagsModel.getReferencias(),
                     tagsModel.getActivo(),
                     tagsModel.getCreado(),
@@ -211,25 +209,25 @@ public class TagsView extends javax.swing.JFrame {
     }
     
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
-        LlenarTablaTags(TagsController.SelectTagsById(this.txtBuscar.getText().replace(" ", "")));
+        LlenarTablaUsuarios(tagsController.SelecttagsByreferens(this.txtBuscar.getText().replace(" ", "")));
     }//GEN-LAST:event_txtBuscarKeyReleased
 
     private void btnEditarDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDatosPersonalesActionPerformed
-            new EditarTagsView(tblUsuarios.getModel().getValueAt(tblUsuarios.getSelectedRow(),0).toString()).setVisible(true);
+            new EditarUsuarioView(tblTags.getModel().getValueAt(tblTags.getSelectedRow(),0).toString()).setVisible(true);
     }//GEN-LAST:event_btnEditarDatosPersonalesActionPerformed
 
     private void btnRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefrescarActionPerformed
         JOptionPane.showMessageDialog(null,"Tablas Refrescadas");
-        LlenarTablaTags(TagsController.SelectTagsById());
+        LlenarTablaUsuarios(tagsController.SelectTags());
     }//GEN-LAST:event_btnRefrescarActionPerformed
 
     private void btnDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetallesActionPerformed
-        new DetalleUsuarioView(tblUsuarios.getModel().getValueAt(tblUsuarios.getSelectedRow(),0).toString()).setVisible(true);
+        new DetalleUsuarioView(tblTags.getModel().getValueAt(tblTags.getSelectedRow(),0).toString()).setVisible(true);
     }//GEN-LAST:event_btnDetallesActionPerformed
 
     private void btnNuevoDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoDatosPersonalesActionPerformed
-        new NuevoUsuarioView().setVisible(true);
-        usuariosController.j();
+        new NuevoTagsView().setVisible(true);
+        tagsController.j();
 
     }//GEN-LAST:event_btnNuevoDatosPersonalesActionPerformed
 
@@ -243,7 +241,7 @@ public class TagsView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JTable tblUsuarios;
+    private javax.swing.JTable tblTags;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

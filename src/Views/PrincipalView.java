@@ -2,7 +2,7 @@ package Views;
 
 import Views.Usuarios.UsuariosView;
 import Models.*;
-import Views.Usuarios.NuevoTagsView;
+
 import java.util.List;
 
 public class PrincipalView extends javax.swing.JFrame {
@@ -106,7 +106,7 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnTagsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTagsActionPerformed
-       new NuevoTagsView(usuarioLogueado).setVisible(true);
+       new TagsView.TagsView(usuarioLogueado).setVisible(true);
     }//GEN-LAST:event_btnTagsActionPerformed
 
   
