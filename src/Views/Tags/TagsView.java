@@ -1,4 +1,4 @@
-package TagsView;
+package Views.Tags;
 import Views.Usuarios.*;
 import Controllers.*;
 import Models.*;

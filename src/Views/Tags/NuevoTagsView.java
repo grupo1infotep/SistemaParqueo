@@ -1,4 +1,4 @@
-package TagsView;
+package Views.Tags;
 import Controllers.*;
 import Models.*;
 import javax.swing.JOptionPane;
